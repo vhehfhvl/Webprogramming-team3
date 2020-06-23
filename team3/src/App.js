@@ -16,7 +16,11 @@ import 'firebase/auth';
 import 'firebase/storage';
 import 'firebase/database';
 
+const databaseURL = "https://team3-4f2c8.firebaseio.com/";
+
+
 function App() {
+
 
 
 
@@ -35,11 +39,22 @@ function App() {
     // setChangedPostList(searchResult);
     setSearchValue('');
   }
-
+  
+  
+  const _get = () => {
+    fetch(`${databaseURL}/subjects.json`).then(res => {
+    if(res.status != 200) {
+    throw new Error(res.statusText);
+    }
+      return res.json();
+    }).then(subjects => console.log(subjects));
+  }
+    
 
   const onAdd = (e) => {
     e.preventDefault();
     setAddSubject(true)
+    _get();
     // const searchResult = postList.filter(post => post.title.indexOf(searchValue) !== -1);
     // setChangedPostList(searchResult);
     setSearchValue('');
@@ -69,7 +84,7 @@ function App() {
       <br></br>
       <br></br>
       <Button variant="contained" color="primary" className="App-AddButton" align="center" onClick={onAdd}>
-          없는 과목 추가하기
+        Add New Subject
       </Button>
       {/* </Link> */}
 
