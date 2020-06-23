@@ -2,9 +2,19 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Link } from 'react-router-dom';
+
+
+//Material Ui
 import { IconButton, TextField, Dialog, DialogContent, DialogActions, Button} from '@material-ui/core/';
 import { makeStyles, withStyles } from '@material-ui/styles';
 import SearchIcon from '@material-ui/icons/Search';
+
+//Firebase
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/database';
 
 function App() {
 
@@ -14,7 +24,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [changedPostList, setChangedPostList] = useState('');
   const [searchResult, setSearchResult] = useState(false);
-
+  const [addSubject, setAddSubject] = useState(false);
 
   const onChangeSearchValue = (e) => setSearchValue(e.target.value);
 
@@ -23,9 +33,17 @@ function App() {
     setSearchResult(true)
     // const searchResult = postList.filter(post => post.title.indexOf(searchValue) !== -1);
     // setChangedPostList(searchResult);
-    // setSearchValue('');
+    setSearchValue('');
   }
 
+
+  const onAdd = (e) => {
+    e.preventDefault();
+    setAddSubject(true)
+    // const searchResult = postList.filter(post => post.title.indexOf(searchValue) !== -1);
+    // setChangedPostList(searchResult);
+    setSearchValue('');
+  }
 
 
   return (
@@ -33,7 +51,6 @@ function App() {
       <header className="App-header">
 
       <div className="App-title">Team3 - Subject Information</div>
-      <br/>
       <br/>
       <br/>
       <br/>
@@ -45,6 +62,19 @@ function App() {
           </IconButton>
       </form>
 
+
+      {/* <Link to={{
+        pathname: "/AddSubject",
+      }}> */}
+      <br></br>
+      <br></br>
+      <Button variant="contained" color="primary" className="App-AddButton" align="center" onClick={onAdd}>
+          없는 과목 추가하기
+      </Button>
+      {/* </Link> */}
+
+
+
       <Dialog open={searchResult} onClose={!searchResult}>
           <DialogContent>
               {/* <p className={styles['position-name']}>{selectedPositionName}</p>
@@ -52,6 +82,17 @@ function App() {
           </DialogContent>
           <DialogActions>
               <Button variant="outlined" color="primary" onClick={() => {setSearchResult(!searchResult)}}>Close</Button>
+          </DialogActions>
+      </Dialog>
+
+
+      <Dialog open={addSubject} onClose={!addSubject}>
+          <DialogContent>
+              {/* <p className={styles['position-name']}>{selectedPositionName}</p>
+              <div className={styles['job-description']}>{description}</div> */}
+          </DialogContent>
+          <DialogActions>
+              <Button variant="outlined" color="primary" onClick={() => {setAddSubject(!addSubject)}}>Close</Button>
           </DialogActions>
       </Dialog>
 
