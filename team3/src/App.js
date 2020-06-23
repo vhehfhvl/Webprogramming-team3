@@ -50,7 +50,7 @@ function App() {
   const _post = () => {
     fetch(`${databaseURL}/subjects.json/`, {
       method: 'PATCH',
-      body: JSON.stringify({"과목명":{"교수": '123', "정원": 'ads', "수강인원": '~~', "대체과목": 'ads', "선수과목": 'ads', "선수과목": '수강평'}}),
+      body: JSON.stringify({"과목명":{"교수": '123', "정원": 'ads', "수강인원": '~~', "대체과목": 'ads', "선수과목": 'ads', "선수과목": '123', "수강평": '123'}}),
     }).then(res => {
       if(res.status != 200) {
       throw new Error(res.statusText);
