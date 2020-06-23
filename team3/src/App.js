@@ -49,14 +49,25 @@ function App() {
       return res.json();
     }).then(subjects => console.log(subjects));
   }
-    
+
+  const _post = () => {
+    fetch(`${databaseURL}/subjects.json/`, {
+      method: 'PATCH',
+      body: JSON.stringify({"과목명":{"교수": '123', "정원": 'ads', "수강인원": '~~', "대체과목": 'ads', "선수과목": 'ads', "선수과목": '수강평'}}),
+    }).then(res => {
+      if(res.status != 200) {
+      throw new Error(res.statusText);
+      }
+      return res.json();
+    }).then(subjects => console.log(subjects));
+  }    
 
   const onAdd = (e) => {
     e.preventDefault();
     setAddSubject(true)
-    _get();
-    // const searchResult = postList.filter(post => post.title.indexOf(searchValue) !== -1);
-    // setChangedPostList(searchResult);
+
+    _post()
+
     setSearchValue('');
   }
 
