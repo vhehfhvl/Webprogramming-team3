@@ -33,8 +33,7 @@ function App() {
   const onSearch = (e) => {
     e.preventDefault();
     setSearchResult(true)
-    // const searchResult = postList.filter(post => post.title.indexOf(searchValue) !== -1);
-    // setChangedPostList(searchResult);
+
     setSearchValue('');
   }
   
@@ -87,22 +86,18 @@ function App() {
       </form>
 
 
-      {/* <Link to={{
-        pathname: "/AddSubject",
-      }}> */}
       <br></br>
       <br></br>
       <Button variant="contained" color="primary" className="App-AddButton" align="center" onClick={onAdd}>
         Add New Subject
       </Button>
-      {/* </Link> */}
 
 
 
       <Dialog open={searchResult} onClose={!searchResult}>
           <DialogContent>
-              {/* <p className={styles['position-name']}>{selectedPositionName}</p>
-              <div className={styles['job-description']}>{description}</div> */}
+              <p>가져온내용 제목</p>
+              <div>제목에 해당하는 내용</div>
           </DialogContent>
           <DialogActions>
               <Button variant="outlined" color="primary" onClick={() => {setSearchResult(!searchResult)}}>Close</Button>
@@ -112,8 +107,10 @@ function App() {
 
       <Dialog open={addSubject} onClose={!addSubject}>
           <DialogContent>
-              {/* <p className={styles['position-name']}>{selectedPositionName}</p>
-              <div className={styles['job-description']}>{description}</div> */}
+              <p>ex.과목명</p>
+              <div>ex.운영체제</div>
+              <p>ex.교수명</p>
+              <div>ex.심규석</div>
           </DialogContent>
           <DialogActions>
               <Button variant="outlined" color="primary" onClick={() => {setAddSubject(!addSubject)}}>Close</Button>
