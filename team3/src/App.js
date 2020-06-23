@@ -24,9 +24,7 @@ function App() {
 
 
 
-  const [postList, setPostList] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-  const [changedPostList, setChangedPostList] = useState('');
   const [searchResult, setSearchResult] = useState(false);
   const [addSubject, setAddSubject] = useState(false);
 
