@@ -125,6 +125,21 @@ function App() {
               <p>가져온내용 제목</p>
               <div>제목에 해당하는 내용</div>
               <div>{searchValue.과목명}</div> {/* 가져온 과목의 과목명을 보여줌 */}  
+
+              <p>교수명</p> {/* 나머지 정보들도 함께 보여줌 */}
+              <div>{searchValue.교수}</div>
+              <p>대체과목</p>
+              <div>{searchValue.대체과목}</div>
+              <p>선수과목</p>
+              <div>{searchValue.선수과목}</div>
+              <p>수강인원</p>
+              <div>{searchValue.수강인원}</div>
+              <p>수강평</p>
+              <div>{searchValue.수강평}</div>
+              <p>정원</p>
+              <div>{searchValue.정원}</div>
+
+
           </DialogContent>
           <DialogActions>
               <Button variant="outlined" color="primary" onClick={() => {setSearchResult(!searchResult)}}>Close</Button>
