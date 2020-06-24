@@ -83,6 +83,12 @@ function App() {
     setSearchValue('');
   }
 
+  
+  const onChangeSearchValue = (e) => { // 검색한 text를 searchValue로 세팅하기
+    e.preventDefault();
+    setSearchValue(e);
+  }
+
 
   return (
     <div className="App">
