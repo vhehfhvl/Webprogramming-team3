@@ -35,7 +35,12 @@ function App() {
     setSearchResult(true)
 
     setSearchValue('');
-
+  
+    
+    let temp_result = _get(); // get으로 가져와서 저장된 값이면 searchValue로 저장
+    if(temp_result){
+      setSearchValue(temp_result);
+    }
   }
   
   
@@ -62,9 +67,11 @@ function App() {
     }).then(subjects => console.log(subjects));
   }   
 
-  const _get_subject = (subjectName) => {
+  const _get_subject = (subjectName) => { // 특정 과목 검색하기
     return fetch(`${databaseURL}/subjects.json/${subjectName}`).then(res => res.json());
   }
+
+
   
 
   const onAdd = (e) => {
