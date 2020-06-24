@@ -35,6 +35,7 @@ function App() {
     setSearchResult(true)
 
     setSearchValue('');
+
   }
   
   
@@ -47,6 +48,8 @@ function App() {
     }).then(subjects => console.log(subjects));
   }
 
+  
+
   const _post = () => {
     fetch(`${databaseURL}/subjects.json/`, {
       method: 'PATCH',
@@ -57,7 +60,12 @@ function App() {
       }
       return res.json();
     }).then(subjects => console.log(subjects));
-  }    
+  }   
+
+  const _get_subject = (subjectName) => {
+    return fetch(`${databaseURL}/subjects.json/${subjectName}`).then(res => res.json());
+  }
+  
 
   const onAdd = (e) => {
     e.preventDefault();
