@@ -89,6 +89,11 @@ function App() {
     setSearchValue(e);
   }
 
+  const onSearch = (e) => { // 임시적인? 검색하기
+    e.preventDefault();
+    _post();
+  }
+
 
   return (
     <div className="App">
