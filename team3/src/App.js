@@ -124,6 +124,7 @@ function App() {
           <DialogContent>
               <p>가져온내용 제목</p>
               <div>제목에 해당하는 내용</div>
+              <div>{searchValue.과목명}</div> {/* 가져온 과목의 과목명을 보여줌 */}  
           </DialogContent>
           <DialogActions>
               <Button variant="outlined" color="primary" onClick={() => {setSearchResult(!searchResult)}}>Close</Button>
