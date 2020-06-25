@@ -16,12 +16,14 @@ import 'firebase/auth';
 import 'firebase/storage';
 import 'firebase/database';
 
+
+
 const databaseURL = "https://team3-4f2c8.firebaseio.com/";
 
 
 function App() {
 
-
+  // require('dotenv').config();
 
 
   const [searchValue, setSearchValue] = useState('');
@@ -83,16 +85,6 @@ function App() {
     setSearchValue('');
   }
 
-  
-  const onChangeSearchValue = (e) => { // 검색한 text를 searchValue로 세팅하기
-    e.preventDefault();
-    setSearchValue(e);
-  }
-
-  const onSearch = (e) => { // 임시적인? 검색하기
-    e.preventDefault();
-    _post();
-  }
 
 
   return (
